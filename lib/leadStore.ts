@@ -1,0 +1,170 @@
+import { Lead } from '@/types/lead';
+
+export const INITIAL_LEADS: Lead[] = [
+  {
+    id: 'lead-1',
+    clinicName: 'Apex Dental & Orthodontics',
+    clinicAddress: '1420 NW Horizon Blvd, Suite 300, Austin, TX 78759',
+    ownerName: 'Dr. Sarah Jenkins',
+    clinicWebsite: 'https://apexdentalaustin.com',
+    phone: '(512) 555-0142',
+    notes: 'Interested in imaging upgrade. Warm lead from dental conference.',
+    outreachMethod: 'In Person Visit',
+    stage: 'Response',
+    priority: 'High',
+    assignedTo: 'Alex Mercer',
+    createdAt: '2026-07-22T08:00:00Z',
+    updatedAt: '2026-07-22T09:15:00Z',
+    outreachCompleted: true,
+    activities: [
+      { id: 'act-1', type: 'Note', description: 'Lead imported into system.', timestamp: '2026-07-22T08:05:00Z', author: 'System' },
+      { id: 'act-2', type: 'Meeting', description: 'In-person visit at dental conference. Promising conversation.', timestamp: '2026-07-22T11:00:00Z', author: 'Alex Mercer' }
+    ]
+  },
+  {
+    id: 'lead-2',
+    clinicName: 'Nexus Physical Therapy & Rehab',
+    clinicAddress: '880 Ocean Park Drive, Building B, Santa Monica, CA 90405',
+    ownerName: 'Dr. David Chen, DPT',
+    clinicWebsite: 'https://nexusptrehab.org',
+    phone: '(310) 555-0188',
+    notes: 'Multi-location group. Follow up on cold message sent.',
+    outreachMethod: 'Cold Message Sent',
+    stage: 'Meeting Had',
+    priority: 'High',
+    assignedTo: 'Elena Rostova',
+    createdAt: '2026-07-22T09:00:00Z',
+    outreachCompleted: true,
+    updatedAt: '2026-07-22T16:40:00Z',
+    activities: [
+      { id: 'act-3', type: 'Email', description: 'Cold message sent via LinkedIn. Received reply.', timestamp: '2026-07-22T10:00:00Z', author: 'Elena Rostova' },
+      { id: 'act-4', type: 'Meeting', description: 'Initial meeting held with practice manager.', timestamp: '2026-07-22T14:00:00Z', author: 'Elena Rostova' }
+    ]
+  },
+  {
+    id: 'lead-3',
+    clinicName: 'BlueWave Family Medical Practice',
+    clinicAddress: '512 Michigan Ave, Floor 4, Chicago, IL 60611',
+    ownerName: 'Dr. Marcus Vance',
+    clinicWebsite: 'https://bluewavemed.com',
+    phone: '(312) 555-0199',
+    notes: 'Sent introductory letter. No response yet.',
+    outreachMethod: 'Letters Sent',
+    stage: 'Letter Written',
+    priority: 'Medium',
+    assignedTo: 'Jordan Blake',
+    outreachCompleted: false,
+    createdAt: '2026-07-23T08:20:00Z',
+    updatedAt: '2026-07-23T13:10:00Z',
+    activities: [
+      { id: 'act-5', type: 'Note', description: 'Introductory letter mailed with practice brochure.', timestamp: '2026-07-23T08:30:00Z', author: 'Jordan Blake' }
+    ]
+  },
+  {
+    id: 'lead-4',
+    clinicName: 'Pinnacle Dermatology & Laser',
+    clinicAddress: '300 Peachtree St NE, Atlanta, GA 30308',
+    ownerName: 'Dr. Rachel Adams',
+    clinicWebsite: 'https://pinnaclederm.io',
+    phone: '(404) 555-0123',
+    notes: 'Cold called. Left voicemail with office manager.',
+    outreachMethod: 'Cold Call Made',
+    stage: 'Lead Pending',
+    priority: 'Low',
+    outreachCompleted: false,
+    assignedTo: 'Alex Mercer',
+    createdAt: '2026-07-24T09:45:00Z',
+    updatedAt: '2026-07-24T09:45:00Z',
+    activities: []
+  },
+  {
+    id: 'lead-5',
+    clinicName: 'Solare Integrative Wellness',
+    clinicAddress: '750 Sunnyside Ave, Suite 102, Miami, FL 33139',
+    ownerName: 'Dr. Carlos Ruiz',
+    clinicWebsite: 'https://solarewellness.com',
+    phone: '(305) 555-0177',
+    notes: 'Closed prospect. Onboarding completed.',
+    outreachMethod: 'In Person Visit',
+    stage: 'Prospect Closed',
+    outreachCompleted: true,
+    priority: 'High',
+    assignedTo: 'Elena Rostova',
+    createdAt: '2026-07-25T11:00:00Z',
+    updatedAt: '2026-07-25T17:00:00Z',
+    activities: [
+      { id: 'act-6', type: 'Stage Change', description: 'Prospect closed successfully.', timestamp: '2026-07-25T17:00:00Z', author: 'Elena Rostova' }
+    ]
+  },
+  {
+    id: 'lead-6',
+    clinicName: 'Surge Sports & Spine Clinic',
+    clinicAddress: '1200 Airport Way S, Seattle, WA 98134',
+    ownerName: 'Dr. Emily Watson',
+    clinicWebsite: 'https://surgesportsclinic.com',
+    phone: '(206) 555-0155',
+    notes: 'Sent cold message on LinkedIn. Waiting for response.',
+    outreachCompleted: false,
+    outreachMethod: 'Cold Message Sent',
+    stage: 'Letter Written',
+    priority: 'Medium',
+    assignedTo: 'Jordan Blake',
+    createdAt: '2026-07-26T16:15:00Z',
+    updatedAt: '2026-07-26T10:30:00Z',
+    activities: []
+  },
+  {
+    id: 'lead-7',
+    clinicName: 'Horizon Pediatric Health',
+    clinicAddress: '440 Denver Tech Pkwy, Englewood, CO 80112',
+    ownerName: 'Dr. James O\'Connor',
+    clinicWebsite: 'https://horizonpeds.org',
+    phone: '(303) 555-0166',
+    notes: 'Had productive meeting. Follow-up scheduled.',
+    outreachCompleted: true,
+    outreachMethod: 'Cold Call Made',
+    stage: 'Meeting Had',
+    priority: 'High',
+    assignedTo: 'Alex Mercer',
+    createdAt: '2026-07-27T13:00:00Z',
+    updatedAt: '2026-07-27T11:00:00Z',
+    activities: [
+      { id: 'act-7', type: 'Call', description: 'Cold call resulted in scheduled meeting.', timestamp: '2026-07-27T10:00:00Z', author: 'Alex Mercer' },
+      { id: 'act-8', type: 'Meeting', description: 'Met with Dr. O\'Connor and board chair.', timestamp: '2026-07-27T14:00:00Z', author: 'Alex Mercer' }
+    ]
+  },
+  {
+    id: 'lead-8',
+    clinicName: 'GreenEarth Chiropractic',
+    clinicAddress: '900 Main Street, Suite 4, Portland, OR 97201',
+    ownerName: 'Dr. Linda Martinez',
+    clinicWebsite: 'https://greenearthchiro.com',
+    phone: '(503) 555-0133',
+    outreachCompleted: false,
+    notes: 'Sent letter but no response. Low priority follow-up.',
+    outreachMethod: 'Letters Sent',
+    stage: 'Letter Written',
+    priority: 'Low',
+    assignedTo: 'Jordan Blake',
+    createdAt: '2026-07-28T12:00:00Z',
+    updatedAt: '2026-07-28T15:30:00Z',
+    activities: []
+  },
+  {
+    id: 'lead-9',
+    clinicName: 'Quantum Vision & Eye Care',
+    clinicAddress: '210 Silicon Valley Blvd, San Jose, CA 95110',
+    ownerName: 'Dr. Michael Chang',
+    clinicWebsite: 'https://quantumeyecare.com',
+    phone: '(408) 555-0111',
+    notes: 'In-person visit scheduled. New clinic opening Q4.',
+    outreachCompleted: false,
+    outreachMethod: 'In Person Visit',
+    stage: 'Lead Pending',
+    priority: 'High',
+    assignedTo: 'Elena Rostova',
+    createdAt: '2026-07-29T09:00:00Z',
+    updatedAt: '2026-07-29T09:00:00Z',
+    activities: []
+  }
+];
