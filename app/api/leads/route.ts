@@ -4,7 +4,7 @@ import { Lead } from '@/types/lead';
 
 export async function GET() {
   try {
-    const leads = getAllLeads();
+    const leads = await getAllLeads();
     return NextResponse.json({ leads });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
@@ -14,7 +14,7 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const lead: Lead = await req.json();
-    addLead(lead);
+    await addLead(lead);
     return NextResponse.json({ success: true });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   try {
     const lead: Lead = await req.json();
-    updateLead(lead);
+    await updateLead(lead);
     return NextResponse.json({ success: true });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
@@ -34,7 +34,7 @@ export async function PUT(req: NextRequest) {
 export async function DELETE(req: NextRequest) {
   try {
     const { id } = await req.json();
-    deleteLead(id);
+    await deleteLead(id);
     return NextResponse.json({ success: true });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });

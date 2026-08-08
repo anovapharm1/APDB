@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "@supabase/supabase-js": "^2.112.2",
     "better-sqlite3": "^13.0.1",
     "clsx": "^2.1.1",
     "html-to-text": "^10.0.0",
