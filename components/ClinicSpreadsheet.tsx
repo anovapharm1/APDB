@@ -125,47 +125,47 @@ export default function ClinicSpreadsheet({
   return (
     <div className="space-y-5">
       {/* Search and Filter Bar */}
-      <div className="bg-white rounded-2xl border border-[#EAEAEA]/80 shadow-sm px-5 py-3 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3 flex-1">
-          <div className="relative flex-1 max-w-xs">
-            <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#B8B8B8]" strokeWidth={1.5} />
+      <div className="flex flex-col gap-3 rounded-2xl border border-[#EAEAEA]/80 bg-white px-4 py-3 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:px-5">
+        <div className="flex w-full min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+          <div className="relative w-full min-w-0 sm:max-w-xs">
+            <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#B8B8B8]" strokeWidth={1.5} />
             <input
               type="text"
               placeholder="Search clinics..."
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-[#F9F9F8] border border-[#EAEAEA] rounded-xl text-sm text-[#2F3437] placeholder-[#B8B8B8] focus:outline-none focus:ring-2 focus:ring-[#1F6C9F]/10 focus:border-[#1F6C9F]/30 transition-all"
+              className="w-full rounded-xl border border-[#EAEAEA] bg-[#F9F9F8] py-2 pl-9 pr-3 text-sm text-[#2F3437] placeholder-[#B8B8B8] transition-all focus:border-[#1F6C9F]/30 focus:outline-none focus:ring-2 focus:ring-[#1F6C9F]/10"
             />
           </div>
-          <div className="flex items-center gap-1.5 bg-[#F9F9F8] rounded-xl p-1 border border-[#EAEAEA]">
-            <Filter className="w-3 h-3 ml-1.5 text-[#B8B8B8]" strokeWidth={1.5} />
+          <div className="flex w-full items-center gap-1.5 rounded-xl border border-[#EAEAEA] bg-[#F9F9F8] p-1 sm:w-auto">
+            <Filter className="ml-1.5 h-3 w-3 shrink-0 text-[#B8B8B8]" strokeWidth={1.5} />
             <select
               value={stageFilter}
               onChange={e => setStageFilter(e.target.value)}
-              className="bg-transparent px-2 py-1.5 text-sm text-[#2F3437] focus:outline-none cursor-pointer"
+              className="min-w-0 flex-1 cursor-pointer bg-transparent px-2 py-1.5 text-sm text-[#2F3437] focus:outline-none sm:flex-none"
             >
               <option value="ALL">All Stages</option>
               {STAGES.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex w-full items-center gap-2 sm:w-auto">
           <input ref={fileInputRef} type="file" accept=".csv,.tsv" onChange={handleImport} className="hidden" />
           <button onClick={() => fileInputRef.current?.click()} disabled={importing}
-            className="px-3 py-1.5 rounded-xl text-xs font-medium border border-[#EAEAEA] bg-[#F9F9F8] text-[#787774] hover:text-[#1F6C9F] hover:border-[#1F6C9F]/30 hover:bg-[#EEF6FC] transition-all duration-200 flex items-center gap-1.5 disabled:opacity-50">
-            <Upload className="w-3.5 h-3.5" strokeWidth={1.5} />
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-[#EAEAEA] bg-[#F9F9F8] px-3 py-2 text-xs font-medium text-[#787774] transition-all duration-200 hover:border-[#1F6C9F]/30 hover:bg-[#EEF6FC] hover:text-[#1F6C9F] disabled:opacity-50 sm:flex-none sm:py-1.5">
+            <Upload className="h-3.5 w-3.5" strokeWidth={1.5} />
             {importing ? 'Importing...' : 'Import CSV'}
           </button>
-          <span className="text-xs text-[#787774] font-mono bg-[#F9F9F8] px-3 py-1.5 rounded-lg border border-[#EAEAEA]">
+          <span className="whitespace-nowrap rounded-lg border border-[#EAEAEA] bg-[#F9F9F8] px-3 py-2 text-xs text-[#787774] sm:py-1.5">
             {filteredLeads.length} clinic{filteredLeads.length !== 1 ? 's' : ''}
           </span>
         </div>
       </div>
 
       {/* Spreadsheet */}
-      <div className="bg-white rounded-2xl border border-[#EAEAEA]/80 shadow-sm overflow-hidden">
+      <div className="overflow-hidden rounded-2xl border border-[#EAEAEA]/80 bg-white shadow-sm">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm">
+          <table className="min-w-[900px] w-full text-left text-sm">
             <thead>
               <tr className="border-b border-[#EAEAEA] bg-gradient-to-r from-[#FAFAFA] to-[#F7F7F7] text-xs text-[#787774] uppercase tracking-wider select-none font-medium">
                 <th className="w-10 text-center py-3.5">#</th>

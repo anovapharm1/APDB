@@ -24,7 +24,7 @@ export default function KPICard({
   const trendColor = trend === 'up' ? '#10B981' : trend === 'down' ? '#EF4444' : '#787774';
 
   return (
-    <div className="bg-white rounded-2xl border border-[#EAEAEA]/80 shadow-sm p-6 h-full flex flex-col">
+    <div className="flex h-full flex-col rounded-2xl border border-[#EAEAEA]/80 bg-white p-4 shadow-sm sm:p-6">
       <div className="flex items-center gap-3 mb-4">
         {icon && (
           <div

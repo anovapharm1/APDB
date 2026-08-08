@@ -174,19 +174,19 @@ export default function AnovaDashboard({ leads }: PipelineDashboardProps) {
   return (
     <div className="space-y-6">
       {/* Time Range Selector */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-xl font-semibold text-[#111]">Analytics Dashboard</h1>
-          <p className="text-sm text-[#787774] mt-0.5">{totalLeads} total prospects in pipeline</p>
+          <p className="mt-0.5 text-sm text-[#787774]">{totalLeads} total prospects in pipeline</p>
         </div>
-        <div className="flex items-center gap-1 bg-[#F5F5F4] rounded-lg p-1 border border-[#EAEAEA]">
+        <div className="flex w-full items-center justify-between gap-1 rounded-lg border border-[#EAEAEA] bg-[#F5F5F4] p-1 sm:w-auto sm:justify-start">
           {(['daily', 'weekly', 'monthly'] as const).map(range => (
             <button
               key={range}
               onClick={() => setTimeRange(range)}
-              className={`px-3 py-1.5 rounded-md text-xs font-medium transition-aesthetic ${
+              className={`flex-1 rounded-md px-3 py-1.5 text-xs font-medium transition-aesthetic sm:flex-none ${
                 timeRange === range
-                  ? 'bg-white text-[#111] border border-[#EAEAEA] shadow-sm'
+                  ? 'border border-[#EAEAEA] bg-white text-[#111] shadow-sm'
                   : 'text-[#787774] hover:text-[#111]'
               }`}
             >

@@ -48,16 +48,16 @@ export default function LeadFormModal({ isOpen, onClose, onSave, initialLead }: 
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm p-4 overflow-y-auto">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl border border-[#EAEAEA] my-8">
-        <div className="px-5 py-3 border-b border-[#EAEAEA] flex items-center justify-between">
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/30 p-3 backdrop-blur-sm sm:items-center sm:p-4">
+      <div className="my-3 w-full max-w-2xl rounded-xl border border-[#EAEAEA] bg-white shadow-xl sm:my-8">
+        <div className="flex items-center justify-between border-b border-[#EAEAEA] px-4 py-3 sm:px-5">
           <h2 className="text-sm font-medium text-[#111]">{initialLead ? 'Edit Clinic' : 'New Clinic Entry'}</h2>
           <button onClick={onClose} className="p-1 text-[#B8B8B8] hover:text-[#111] hover:bg-[#F5F5F4] rounded-lg transition-aesthetic">
             <X className="w-4 h-4" strokeWidth={1.5} />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 p-4 sm:p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="md:col-span-2">
               <Field label="Clinic Name" error={errors.clinicName}>

@@ -34,24 +34,25 @@ export default function KanbanBoard({ leads, onSelectLead, onUpdateStage, onAddL
 
   return (
     <div className="space-y-5">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-sm font-medium text-[#111]">Pipeline Board</h2>
-          <p className="text-sm text-[#787774] mt-0.5">Drag cards between stages</p>
+          <p className="mt-0.5 text-sm text-[#787774]">Drag cards between stages</p>
         </div>
-        <button onClick={onAddLead} className="px-3 py-1.5 bg-[#111] text-white rounded-lg text-xs font-medium hover:bg-[#2F3437] transition-aesthetic">
-          <Plus className="w-3.5 h-3.5 inline mr-1" strokeWidth={1.5} /> Add
+        <button onClick={onAddLead} className="flex w-full items-center justify-center rounded-lg bg-[#111] px-3 py-2 text-xs font-medium text-white transition-aesthetic hover:bg-[#2F3437] sm:w-auto">
+          <Plus className="mr-1 h-3.5 w-3.5" strokeWidth={1.5} /> Add
         </button>
       </div>
 
-      <div className="flex gap-4 overflow-x-auto pb-4 min-h-[70vh]">
+      <div className="flex min-h-[min(70vh,680px)] gap-4 overflow-x-auto pb-4">
+
         {STAGES.map(stage => {
           const stageLeads = getStageLeads(stage);
           const isLetterWritten = stage === 'Letter Written';
           const isLeadPending = stage === 'Lead Pending';
           return (
             <div key={stage} onDragOver={handleDragOver} onDrop={e => handleDrop(e, stage)}
-              className="w-72 flex-shrink-0 bg-white rounded-xl border border-[#EAEAEA] p-4 flex flex-col">
+              className="flex w-[min(18rem,calc(100vw-2rem))] flex-shrink-0 flex-col rounded-xl border border-[#EAEAEA] bg-white p-4 sm:w-72">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-xs font-medium text-[#787774] flex items-center gap-2 uppercase tracking-wider">
                   {stage}

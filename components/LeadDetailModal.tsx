@@ -37,9 +37,9 @@ export default function LeadDetailModal({ lead, onClose, onUpdateLead }: LeadDet
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm p-4 overflow-y-auto">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-3xl border border-[#EAEAEA] my-8">
-        <div className="px-6 py-4 border-b border-[#EAEAEA] flex items-start justify-between">
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/30 p-3 backdrop-blur-sm sm:items-center sm:p-4">
+      <div className="my-3 w-full max-w-3xl rounded-xl border border-[#EAEAEA] bg-white shadow-xl sm:my-8">
+        <div className="flex items-start justify-between border-b border-[#EAEAEA] px-4 py-3 sm:px-6 sm:py-4">
           <div>
             <h2 className="text-base font-semibold text-[#111]">{lead.clinicName}</h2>
             <p className="text-sm text-[#787774] mt-0.5">{lead.ownerName}</p>
@@ -49,9 +49,9 @@ export default function LeadDetailModal({ lead, onClose, onUpdateLead }: LeadDet
           </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-[#EAEAEA] max-h-[80vh] overflow-y-auto">
-          <div className="p-6 space-y-6 lg:col-span-2">
-            <div className="grid grid-cols-3 gap-3">
+        <div className="grid max-h-[85dvh] grid-cols-1 divide-y divide-[#EAEAEA] overflow-y-auto sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <div className="space-y-6 p-4 sm:col-span-2 sm:p-6">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               <div className="bg-[#F9F9F8] rounded-lg p-4 border border-[#EAEAEA]">
                 <span className="text-xs text-[#787774] font-mono">Outreach Method</span>
                 <div className="text-sm font-medium text-[#956400] mt-1">{lead.outreachMethod}</div>

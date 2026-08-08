@@ -36,6 +36,7 @@ export default function Home() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [activeTab, setActiveTab] = useState<string>('spreadsheet');
   const [dateRange, setDateRange] = useState<'today' | '7days' | '30days' | 'year'>('30days');
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingLead, setEditingLead] = useState<Lead | null>(null);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
@@ -285,11 +286,22 @@ export default function Home() {
     );
   }
   return (
-    <div className="min-h-screen flex bg-[#F8F9FB] text-[#1F2937]">
-      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab as (tab: string) => void} />
+    <div className="flex min-h-screen min-w-0 bg-[#F8F9FB] text-[#1F2937]">
+      <Sidebar
+        activeTab={activeTab}
+        setActiveTab={setActiveTab as (tab: string) => void}
+        isMobileOpen={isMobileNavOpen}
+        onClose={() => setIsMobileNavOpen(false)}
+      />
 
-      <div className="flex-1 overflow-y-auto">
-        <Header title={TAB_TITLES[activeTab] || 'Dashboard'} dateRange={dateRange} onDateRangeChange={setDateRange} />
+      <div className="min-w-0 flex-1 overflow-y-auto">
+        <div className="mx-auto w-full max-w-[1600px] px-4 pb-4 pt-4 sm:px-6 sm:pb-6 sm:pt-6">
+          <Header
+            title={TAB_TITLES[activeTab] || 'Dashboard'}
+            dateRange={dateRange}
+            onDateRangeChange={setDateRange}
+            onMenuClick={() => setIsMobileNavOpen(true)}
+          />
 
           {/* Tab View Contents */}
           {['today', 'followups', 'opportunities', 'accounts', 'activities', 'reports', 'data-quality'].includes(activeTab) && (
@@ -313,6 +325,7 @@ export default function Home() {
           {activeTab === 'lead-management' && (
             <LeadManagement leads={leads} onSelectLead={(lead) => setSelectedLead(lead)} />
           )}
+        </div>
         </div>
 
       {/* Modals */}
